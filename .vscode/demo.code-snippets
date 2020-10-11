@@ -1,0 +1,88 @@
+{
+  "Dog picture URL": {
+    "scope": "javascript",
+    "prefix": "dog_url",
+    "body": "`https://dog.ceo/api/breeds/image/random`",
+    "description": "Dog picture URL"
+  },
+  "Import server": {
+    "scope": "javascript",
+    "prefix": "server_import",
+    "body": "import { serve } from 'https://deno.land/std@0.74.0/http/server.ts';",
+    "description": "Import server"
+  },
+  "Import oak": {
+    "scope": "javascript",
+    "prefix": "oak_import",
+    "body": "import { Application, Router } from 'https://deno.land/x/oak/mod.ts';",
+    "description": "Import oak"
+  },
+  "Setup oak": {
+    "scope": "javascript",
+    "prefix": "oak_setup",
+    "body": ["const router = new Router();", "const app = new Application();", "const PORT = 8080;"],
+    "description": "Set up oak"
+  },
+  "Response for oak": {
+    "scope": "javascript",
+    "prefix": "oak_respond",
+    "body": ["ctx.response.status = 200;", "ctx.response.body = `Find your random dog at \\${data.message}`"],
+    "description": "Response"
+  },
+  "Start oak application": {
+    "scope": "javascript",
+    "prefix": "oak_respond",
+    "body": ["app.use(router.routes());", "app.use(router.allowedMethods());", "await app.listen({ port: PORT });"],
+    "description": "Start oank application"
+  },
+  "Create todo data": {
+    "scope": "json",
+    "prefix": "create_todo",
+    "body": [
+      "[",
+      "\t{ \"id\": 1, \"title\": \"Create App\", \"completed\": true, \"dateCreated\": \"2020-10-17T10:00:00.000Z\" },",
+      "\t{ \"id\": 2, \"title\": \"Get todos\", \"completed\": true, \"dateCreated\": \"2020-10-17T10:01:00.000Z\" },",
+      "\t{ \"id\": 3, \"title\": \"Add todo\", \"completed\": false, \"dateCreated\": \"2020-10-17T10:02:00.000Z\" }",
+      "]"
+    ],
+    "description": "Create data"
+  },
+  "Get all todos": {
+    "scope": "javascript",
+    "prefix": "all_todos",
+    "body": ["export async function allTodos() {", "\tconst text = await Deno.readTextFile(filePath);", "\treturn JSON.parse(text);", "}"]
+  },
+  "Save todos function": {
+    "scope": "javascript",
+    "prefix": "save_todo",
+    "body": ["export async function saveAllTodos(todos) {", "\tawait Deno.writeTextFile(filePath, JSON.stringify(todos));", "}"],
+    "description": "Function to save todos"
+  },
+  "Read the values from the body": {
+    "scope": "javascript",
+    "prefix": "read_body",
+    "body": ["const body = await ctx.request.body();", "const { $1 } = await body.value;"]
+  },
+  "Create ID": {
+    "scope": "javascript",
+    "prefix": "create_id",
+    "body": ["const data = await allTodos();", "const id = Math.max(...data.map((i) => i.id)) + 1;"]
+  },
+  "Create new todo": {
+    "scope": "javascript",
+    "prefix": "new_todo",
+    "body": ["const newTodo = {", "id,", "\ttitle,", "\tcompleted: false,", "\tdateCreated: new Date().toISOString(),", "}"]
+  },
+  "Find the TODO": {
+    "scope": "javascript",
+    "prefix": "find_todo",
+    "body": [
+      "const todo = data.find((t) => t.id === id);",
+      "if (!todo) {",
+      "\tctx.response.body = 'Not Found';",
+      "\tctx.response.status = 404;",
+      "\treturn;",
+      "}"
+    ]
+  }
+}
