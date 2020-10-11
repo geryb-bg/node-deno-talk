@@ -18,11 +18,11 @@ export const addTodo = async (ctx) => {
     const updatedData = [...data, newTodo];
     await saveAllTodos(updatedData);
 
-    ctx.response.body = 'Created';
     ctx.response.status = 201;
+    ctx.response.body = 'Created';
   } catch (err) {
     console.log(err);
-    ctx.response.body = { error: err.message };
     ctx.response.status = 500;
+    ctx.response.body = { error: err.message };
   }
 };

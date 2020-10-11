@@ -17,11 +17,11 @@ export const deleteTodo = async (ctx) => {
 
     await saveAllTodos(updatedData);
 
-    ctx.response.body = 'Deleted';
     ctx.response.status = 204;
+    ctx.response.body = 'Deleted';
   } catch (err) {
     console.log(err);
-    ctx.response.body = { error: err.message };
     ctx.response.status = 500;
+    ctx.response.body = { error: err.message };
   }
 };

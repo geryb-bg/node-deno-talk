@@ -8,7 +8,7 @@ export const getTodos = async (ctx) => {
     ctx.response.body = data;
   } catch (err) {
     console.log(err);
-    ctx.response.body = { error: err.message };
     ctx.response.status = 500;
+    ctx.response.body = { error: err.message };
   }
 };

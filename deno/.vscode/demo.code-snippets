@@ -23,17 +23,11 @@
     "body": ["const router = new Router();", "const app = new Application();", "const PORT = 8080;"],
     "description": "Set up oak"
   },
-  "Response for oak": {
-    "scope": "javascript",
-    "prefix": "oak_respond",
-    "body": ["ctx.response.status = 200;", "ctx.response.body = `Find your random dog at \\${data.message}`"],
-    "description": "Response"
-  },
   "Start oak application": {
     "scope": "javascript",
-    "prefix": "oak_respond",
-    "body": ["app.use(router.routes());", "app.use(router.allowedMethods());", "await app.listen({ port: PORT });"],
-    "description": "Start oank application"
+    "prefix": "oak_start",
+    "body": ["app.use(router.routes());", "app.use(router.allowedMethods());", "", "await app.listen({ port: PORT });"],
+    "description": "Start oak application"
   },
   "Create todo data": {
     "scope": "json",
