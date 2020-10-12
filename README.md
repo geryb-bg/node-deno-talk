@@ -98,3 +98,9 @@
 - `await saveAllTodos(updatedData);`
 - add `.delete('/:id', deleteTodo)` to router
 - SHOW WORKING
+
+## Debugging
+
+- add `--inspect-brk`
+- go to `chrome://inspect`
+- under Remote Target find deno and click inspect
