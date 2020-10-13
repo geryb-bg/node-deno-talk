@@ -5,6 +5,7 @@
 - `console.log`
 - with function
 - with import/export
+- with CSS `console.log('%cSomething', 'background-color:purple;color:white;font-weight:bold');`
 
 ## Fetch API
 
@@ -104,3 +105,12 @@
 - add `--inspect-brk`
 - go to `chrome://inspect`
 - under Remote Target find deno and click inspect
+
+## Testing
+
+- `test_import`
+- `Deno.test('My first test', () => {})`
+- `assert`
+- `assertEquals`
+- `assertNotEquals`
+- `assertThrows` - function, Error, 'error message'
