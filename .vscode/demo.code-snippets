@@ -65,7 +65,7 @@
   "Create new todo": {
     "scope": "javascript",
     "prefix": "new_todo",
-    "body": ["const newTodo = {", "id,", "\ttitle,", "\tcompleted: false,", "\tdateCreated: new Date().toISOString(),", "}"]
+    "body": ["const newTodo = {", "\tid,", "\ttitle,", "\tcompleted: false,", "\tdateCreated: new Date().toISOString(),", "}"]
   },
   "Find the TODO": {
     "scope": "javascript",
@@ -83,5 +83,28 @@
     "scope": "javascript",
     "prefix": "test_import",
     "body": "import { assert } from 'https://deno.land/std@0.74.0/testing/asserts.ts';"
+  },
+  "Oak Reponse": {
+    "scope": "javascript",
+    "prefix": "oak_response",
+    "body": ["ctx.response.status = $1;", "ctx.response.body = $2;"]
+  },
+  "Oak Function": {
+    "scope": "javascript",
+    "prefix": "oak_function",
+    "body": [
+      "export const $1 = async (ctx) => {",
+      "\ttry {",
+      "$4",
+      "",
+      "\t\tctx.response.status = $2;",
+      "\t\tctx.response.body = $3;",
+      "\t} catch (err) {",
+      "\t\tconsole.log(err);",
+      "\t\tctx.response.status = 500;",
+      "\t\tctx.response.body = { error: err.message };",
+      "\t}",
+      "};"
+    ]
   }
 }

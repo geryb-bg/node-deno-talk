@@ -15,8 +15,7 @@ export const addTodo = async (ctx) => {
       dateCreated: new Date().toISOString(),
     };
 
-    const updatedData = [...data, newTodo];
-    await saveAllTodos(updatedData);
+    await saveAllTodos([...data, newTodo]);
 
     ctx.response.status = 201;
     ctx.response.body = 'Created';

@@ -32,14 +32,8 @@
 - `oak_setup`
 - `router.get('/', async (ctx) => {});`
 - move fetch code
-- `ctx.response.status = 200;`
-- `ctx.response.body = 'Find your random pic at: ${data.message}';`
+- `oak_response`
 - `oak_start`
-- SHOW WORKING
-
-- move function to new file controllers/getTodos
-- add try/catch
-- add import (don't forget .js)
 - SHOW WORKING
 
 ### Data
@@ -50,9 +44,14 @@
 - create file `allTodos.js`
 - `const filePath='./data/todos.json';`
 - `all_todos`
-- import into getTodos
+- create file controllers/getTodos
+- import allTodos
+- `oak_function`
+  - `getTodos`
+  - `200`
+  - `data`
 - `const data = await allTodos();`
-- change body of return
+- change `main.js`
 - add `--allow-read` flag
 - SHOW WORKING
 
@@ -60,15 +59,16 @@
 
 - `save_todo` - create function in allTodos to save
 - create addTodo file in controllers
-- add function same as getTodos
-- add try catch and return error
-- add 201 created response
+- `oak_function`
+  - `addTodo`
+  - `201`
+  - `'Created'`
 - `read_body`
-  - title
+  - `title`
 - `create_id`
 - `new_todo`
-- `const updatedData = [...data, newTodo];` - import here!
-- `await saveAllTodos(updatedData);`
+- `await saveAllTodos([...data, newTodo]);`
+- import statement
 - add `.post('/', addTodo);` to router
 - add `--allow-write` flag
 - SHOW WORKING
@@ -76,9 +76,10 @@
 ### Update TODO
 
 - create updateTodo file in controllers
-- add function same as addTodo
-- add try catch and return error
-- add 204 updated response
+- `oak_function`
+  - `addTodo`
+  - `204`
+  - `'Updated'`
 - `const id = parseInt(ctx.params.id);`
 - `const data = await allTodos();`
 - `find_todo`
