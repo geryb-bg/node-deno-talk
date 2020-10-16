@@ -32,7 +32,8 @@
 - `oak_setup`
 - `router.get('/', async (ctx) => {});`
 - move fetch code
-- `oak_respond`
+- `ctx.response.status = 200;`
+- `ctx.response.body = 'Find your random pic at: ${data.message}';`
 - `oak_start`
 - SHOW WORKING
 
