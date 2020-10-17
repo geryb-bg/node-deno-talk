@@ -38,9 +38,6 @@
 
 ### Data
 
-- create folder called data
-- create json file called todos
-- `create_todo` - to add data
 - create file `allTodos.js`
 - `const filePath='./data/todos.json';`
 - `all_todos`
